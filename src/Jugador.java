@@ -28,7 +28,7 @@ public class Jugador {
 		do{
 			ficha[numFicha] = new Ficha(getTipoJugador(idJugador), obtenerX(), obtenerY(), idJugador);
 		}while(!ficha[numFicha].esValida(tablero));
-		tablero.setCasilla(ficha[numFicha].getCoordenadaX(), ficha[numFicha].getCoordenadaY(), ficha[numFicha].getValor());
+		tablero.setCasilla(ficha[numFicha].getCoordenada().getValorX(), ficha[numFicha].getCoordenada().getValorY(), ficha[numFicha].getValor());
 		System.out.println(" ");
 		tablero.visualizar();
 	}
@@ -42,14 +42,14 @@ public class Jugador {
 		do{
 			ficha = new Ficha(getTipoJugador(jugador.id), obtenerX(), obtenerY(), jugador.id);
 		}while(!jugador.esSuFicha(ficha));
-		int numFicha = numFicha(ficha.getCoordenadaX(), ficha.getCoordenadaY());
-		tablero.setCasilla(this.ficha[numFicha].getCoordenadaX(), this.ficha[numFicha].getCoordenadaY(), '-');
+		int numFicha = numFicha(ficha.getCoordenada().getValorX(), ficha.getCoordenada().getValorY());
+		tablero.setCasilla(this.ficha[numFicha].getCoordenada().getValorX(), this.ficha[numFicha].getCoordenada().getValorY(), '-');
 		this.ficha[numFicha] = ficha;
 		System.out.println("Poner en:");
 		do{
 			this.ficha[numFicha] = new Ficha(getTipoJugador(jugador.id), obtenerX(), obtenerY(), jugador.id);
 		}while(!this.ficha[numFicha].esValida(tablero));
-		tablero.setCasilla(this.ficha[numFicha].getCoordenadaX(), this.ficha[numFicha].getCoordenadaY(), this.ficha[numFicha].getValor());
+		tablero.setCasilla(this.ficha[numFicha].getCoordenada().getValorX(), this.ficha[numFicha].getCoordenada().getValorY(), this.ficha[numFicha].getValor());
 		System.out.println(" ");
 		tablero.visualizar();
 	}
@@ -65,7 +65,7 @@ public class Jugador {
 	
 	private int numFicha(int coordenadaX, int coordenadaY){
 		for(int i = 0; i < 3; i++){
-			if((ficha[i].getCoordenadaX() == coordenadaX) && (ficha[i].getCoordenadaY() == coordenadaY)){
+			if((ficha[i].getCoordenada().getValorX() == coordenadaX) && (ficha[i].getCoordenada().getValorY() == coordenadaY)){
 				return i;
 			}
 		}

@@ -2,8 +2,7 @@
 public class Ficha {
 	
 	private char valor;
-	private int coordenadaX;
-	private int coordenadaY;
+	private Coordenada coordenada;
 	private int duenyo;
 	
 	public Ficha(int duenyo){
@@ -12,8 +11,7 @@ public class Ficha {
 	
 	public Ficha(char valor, int coordenadaX, int coordenadaY, int duenyo){
 		this.valor = valor;
-		this.coordenadaX = coordenadaX;
-		this.coordenadaY = coordenadaY;
+		this.coordenada = new Coordenada(coordenadaX, coordenadaY);
 		this.duenyo = duenyo;
 	}
 
@@ -25,22 +23,6 @@ public class Ficha {
 		this.valor = valor;
 	}
 
-	public int getCoordenadaX() {
-		return coordenadaX;
-	}
-
-	public void setCoordenadaX(int coordenadaX) {
-		this.coordenadaX = coordenadaX;
-	}
-
-	public int getCoordenadaY() {
-		return coordenadaY;
-	}
-
-	public void setCoordenadaY(int coordenadaY) {
-		this.coordenadaY = coordenadaY;
-	}
-
 	public int getDuenyo() {
 		return duenyo;
 	}
@@ -50,10 +32,14 @@ public class Ficha {
 	}
 
 	public boolean esValida(Tablero tablero) {
-		if (tablero.getCasilla(coordenadaX, coordenadaY) == '-') {
+		if (tablero.getCasilla(this.coordenada.getValorX(), this.coordenada.getValorY()) == '-') {
 			return true;
 		}
 		return false;
+	}
+	
+	public Coordenada getCoordenada() {
+		return this.coordenada;
 	}
 
 	@Override
@@ -65,9 +51,9 @@ public class Ficha {
 		if (getClass() != obj.getClass())
 			return false;
 		Ficha other = (Ficha) obj;
-		if (coordenadaX != other.coordenadaX)
+		if (this.coordenada.getValorX() != other.getCoordenada().getValorX())
 			return false;
-		if (coordenadaY != other.coordenadaY)
+		if (this.coordenada.getValorY() != other.getCoordenada().getValorY())
 			return false;
 		return true;
 	}
