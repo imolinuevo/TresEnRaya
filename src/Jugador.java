@@ -21,7 +21,7 @@ public class Jugador {
 		this.id = id;
 	}
 
-	public void ponerFicha(Turno turno, Tablero tablero, int numFicha, int idJugador) {
+	public void ponerFicha(Tablero tablero, int numFicha, int idJugador) {
 		System.out.println("Introduce los datos para poner una nueva ficha");
 		System.out.println("**********************************************");
 		System.out.println("Las coordenadas tienen que terner un valor de 0, 1 o 2.");
@@ -33,7 +33,7 @@ public class Jugador {
 		tablero.visualizar();
 	}
 
-	public void moverFicha(Turno turno, Tablero tablero, Jugador jugador) {
+	public void moverFicha(Tablero tablero, Jugador jugador) {
 		System.out.println("Introduce los datos para mover una ficha");
 		System.out.println("**********************************************");
 		System.out.println("Las coordenadas tienen que terner un valor de 0, 1 o 2.");

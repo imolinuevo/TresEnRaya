@@ -35,4 +35,40 @@ public class Tablero {
 			this.casilla[coordenadaX][coordendaY] = valor;
 		}
 		
+		public boolean finDelJuego() {
+			for(int i = 0; i < 3; i++){
+				if((this.getCasilla(i, 0) == this.getCasilla(i, 1)) && (this.getCasilla(i, 0) == (this.getCasilla(i, 2)))){
+					if(this.getCasilla(i, 0) != '-'){
+						return true;
+					}
+				}
+			}
+			for(int j = 0; j < 3; j++){
+				if((this.getCasilla(0, j) == this.getCasilla(1, j)) && (this.getCasilla(0, j) == (this.getCasilla(2, j)))){
+					if(this.getCasilla(0, j) != '-'){
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		public char ganador() {
+			for(int i = 0; i < 3; i++){
+				if((this.getCasilla(i, 0) == this.getCasilla(i, 1)) && (this.getCasilla(i, 0) == (this.getCasilla(i, 2)))){
+					if(this.getCasilla(i, 0) != '-'){
+						return this.getCasilla(i, 0);
+					}
+				}
+			}
+			for(int j = 0; j < 3; j++){
+				if((this.getCasilla(0, j) == this.getCasilla(1, j)) && (this.getCasilla(0, j) == (this.getCasilla(2, j)))){
+					if(this.getCasilla(0, j) != '-'){
+						this.getCasilla(0, j);
+					}
+				}
+			}
+			return '?';
+		}
+		
 }

@@ -3,7 +3,6 @@ public class TresEnRaya {
 	
 		Jugador[] jugador;
 		Tablero tablero;
-		Turno turno;
 
 		public TresEnRaya(){
 			jugador = new Jugador[2];
@@ -11,7 +10,6 @@ public class TresEnRaya {
 				jugador[i] = new Jugador(i);
 			}
 			tablero = new Tablero();
-			turno = new Turno();
 		}
 		
 		public void jugar(){
@@ -20,23 +18,23 @@ public class TresEnRaya {
 			System.out.println("===================================");
 			tablero.visualizar();
 			//	Fase de posición de fichas
-			for(int i = 0; (i < 3) & (!turno.finDelJuego(tablero)); i++){
-				for(int j = 0; (j < jugador.length) & (!turno.finDelJuego(tablero)); j++){
+			for(int i = 0; (i < 3) & (!tablero.finDelJuego()); i++){
+				for(int j = 0; (j < jugador.length) & (!tablero.finDelJuego()); j++){
 					System.out.println("Jugador " + j);
-					jugador[j].ponerFicha(turno, tablero, i, j);
+					jugador[j].ponerFicha(tablero, i, j);
 				}
 			}
-			if(turno.finDelJuego(tablero)){
-				System.out.println("¡Enhorabuena! El jugador " + turno.ganador(tablero) + " ha ganado.");
+			if(tablero.finDelJuego()){
+				System.out.println("¡Enhorabuena! El jugador " + tablero.ganador() + " ha ganado.");
 			} 
 			//	Fase de movimiento de fichas
 			else {
 				do{
-					for(int i = 0; (i < jugador.length) & (!turno.finDelJuego(tablero)); i++){
-						jugador[i].moverFicha(turno, tablero, jugador[i]);
+					for(int i = 0; (i < jugador.length) & (!tablero.finDelJuego()); i++){
+						jugador[i].moverFicha(tablero, jugador[i]);
 					}
-				}while(!turno.finDelJuego(tablero));
-				System.out.println("¡Enhorabuena! El jugador " + turno.ganador(tablero) + " ha ganado.");
+				}while(!tablero.finDelJuego());
+				System.out.println("¡Enhorabuena! El jugador " + tablero.ganador() + " ha ganado.");
 			}
 		}
 		
