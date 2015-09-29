@@ -8,7 +8,7 @@ public class PutController extends UserActionController {
 	
 	@Override
 	void writeActionDescription(IO io, Player player) {
-		io.writeln("Pone el jugador " + player.getToken().getValue());
+		io.writeln("Pone el jugador " + player.getToken());
 		
 	}
 

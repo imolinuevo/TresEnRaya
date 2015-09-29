@@ -8,7 +8,7 @@ public class MoveController extends UserActionController {
 
 	@Override
 	void writeActionDescription(IO io, Player player) {
-		io.writeln("Mueve el jugador " + player.getToken().getValue());
+		io.writeln("Mueve el jugador " + player.getToken());
 		
 	}
 
@@ -32,7 +32,7 @@ public class MoveController extends UserActionController {
 				io.writeln("Esa casilla no está vacía");
 			}
 		} while (!ok);
-		board.put(origin, new Token('_'));
+		board.put(origin, '_');
 		board.put(target, player.getToken());
 		
 	}

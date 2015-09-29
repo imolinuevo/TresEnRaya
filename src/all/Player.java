@@ -2,18 +2,18 @@ package all;
 
 public class Player {
 
-	Token token;
+	char token;
 
 	public Player(char character) {
-		token = new Token(character);
+		token = character;
 	}
 	
-	public Token getToken(){
+	public char getToken(){
 		return token;
 	}
 
 	public void win() {
-		new IO().writeln("Victoria!!!! " + token.getValue() + "! " + token.getValue() + "! " + token.getValue() + "!!!!! Victoria!!!!");		
+		new IO().writeln("Victoria!!!! " + token + "! " + token + "! " + token + "!!!!! Victoria!!!!");		
 	}
 
 }
