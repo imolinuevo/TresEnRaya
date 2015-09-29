@@ -34,4 +34,9 @@ public class Coordinate {
 		return column;
 	}
 	
+	public boolean isTicTacToe(char[][] tokens) {
+		//TODO
+		return false;
+	}
+	
 }

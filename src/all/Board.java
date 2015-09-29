@@ -1,11 +1,11 @@
 package all;
 
-public class Board {
+public class Board implements GlobalConstants {
 
 	private char[][] tokens;
 	
 	public Board() {
-		tokens = new char[3][3];
+		tokens = new char[MAX_ROW_VALUE][MAX_COLUMN_VALUE];
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				tokens[i][j] = '_';
@@ -36,6 +36,13 @@ public class Board {
 	}
 	
 	public boolean existTicTacToe() {
+		for (int i = 0; i < tokens.length; i++) {
+			for (int j = 0; j < tokens[i].length; j++) {
+				if (new Coordinate(i, j).isTicTacToe(tokens)) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
