@@ -1,12 +1,12 @@
 package all;
 
-abstract class UserActionController {
+abstract class ColocateController {
 	
 	private Board board;
 	
 	private Player player;
 
-	public UserActionController(Board board, Player player) {
+	public ColocateController(Board board, Player player) {
 		this.board = board;
 		this.player = player;
 	}

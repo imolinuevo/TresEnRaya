@@ -1,6 +1,6 @@
 package all;
 
-public class MoveController extends UserActionController {
+public class MoveController extends ColocateController {
 
 	public MoveController(Board board, Player player) {
 		super(board, player);

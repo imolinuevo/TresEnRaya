@@ -1,6 +1,6 @@
 package all;
 
-public class PutController extends UserActionController {
+public class PutController extends ColocateController {
 
 	public PutController(Board board, Player player) {
 		super(board, player);
