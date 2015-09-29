@@ -8,22 +8,20 @@ public class PutController extends ColocateController {
 	
 	@Override
 	void writeActionDescription(IO io, Player player) {
-		io.writeln("Pone el jugador " + player.getToken());
-		
+		new PutView().showActionDescription(io, player);
 	}
 
 	@Override
 	void actionBody(boolean ok, Player player, Board board, IO io) {
 		Coordinate coordinate = new Coordinate();
 		do {
-			io.writeln("En qué casilla?");
+			new PutView().askCoordinate(io);
 			coordinate.read();
 			ok = board.empty(coordinate);
 			if (!ok) {
-				io.writeln("Esa casilla no está vacía");
+				new PutView().alertNotEmptyCoordinate(io);
 			}
 		} while (!ok);
 		board.put(coordinate, player.getToken());
-		
 	}
 }
